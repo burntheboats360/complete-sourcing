@@ -195,7 +195,11 @@
             </div>
           </div>
 
-          <form class="contact-form" id="contactForm">
+          <form class="contact-form" id="contactForm" name="sourcing-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="sourcing-inquiry">
+            <p class="hidden-field">
+              <label>Do not fill this out if you are human <input name="bot-field"></label>
+            </p>
             <label>
               Name
               <input type="text" name="name" autocomplete="name" required>

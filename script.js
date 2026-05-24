@@ -8,16 +8,18 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const data = new FormData(form);
-  const name = data.get("name").trim();
-  const email = data.get("email").trim();
-  const company = data.get("company").trim();
-  const message = data.get("message").trim();
+  statusMessage.textContent = "Sending your inquiry...";
 
-  const subject = encodeURIComponent(`New sourcing inquiry from ${name}`);
-  const body = encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\nCompany: ${company || "Not provided"}\n\nProject details:\n${message}`
-  );
-
-  window.location.href = `mailto:hello@completesourcing.com?subject=${subject}&body=${body}`;
-  statusMessage.textContent = "Your email app should open with the inquiry ready to send.";
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(data).toString()
+  })
+    .then(() => {
+      form.reset();
+      statusMessage.textContent = "Thanks. Your inquiry was sent and saved.";
+    })
+    .catch(() => {
+      statusMessage.textContent = "Something went wrong. Please email hello@completesourcing.com.";
+    });
 });
