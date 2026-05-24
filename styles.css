@@ -238,11 +238,20 @@ p {
 }
 
 .capability-icon {
-  display: block;
-  min-height: 55px;
+  display: grid;
+  place-items: center;
   color: var(--teal);
-  font-size: 2.9rem;
-  line-height: 1;
+  min-height: 55px;
+}
+
+.capability-icon svg {
+  width: 46px;
+  height: 46px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .capability-row h2 {
@@ -530,8 +539,16 @@ textarea:focus {
   color: var(--teal);
   background: var(--white);
   box-shadow: var(--soft-shadow);
-  font-size: 1.5rem;
-  font-weight: 800;
+}
+
+.card-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .image-card strong {
