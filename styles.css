@@ -450,14 +450,6 @@ textarea:focus {
   color: var(--muted);
 }
 
-.secure-note::before {
-  content: "lock";
-  margin-right: 7px;
-  color: var(--muted);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-}
-
 .form-status {
   min-height: 20px;
   color: var(--teal);
